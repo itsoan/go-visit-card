@@ -8,12 +8,15 @@ import (
 func homeHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "Hello, my name is Alexandr, this is my first Go Website")
 }
+
 func aboutHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "About me: I'm Technical Support Engineer and now I'm learning Go and building my first personal website")
 }
+
 func projectHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "Projects: Go Visit Site, Tuxback and Campus bot")
 }
+
 func contactHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "Contacts: Telegram, WhatsApp, GitHub, LinkedIn, Email")
 }
