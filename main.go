@@ -6,7 +6,11 @@ import (
 )
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprint(w, "Hello, my name is Alexandr, this is my first Go Website")
+	if r.URL.Path != "/" {
+		notFoundHandler(w, r)
+		return
+	}
+	fmt.Fprint(w, "Hello! My name is Alexander and this is my first project in Golang")
 }
 
 func aboutHandler(w http.ResponseWriter, r *http.Request) {
@@ -19,6 +23,11 @@ func projectHandler(w http.ResponseWriter, r *http.Request) {
 
 func contactHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "Contacts: Telegram, WhatsApp, GitHub, LinkedIn, Email")
+}
+
+func notFoundHandler(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(http.StatusNotFound)
+	fmt.Fprint(w, "404 page not found")
 }
 
 func main() {
