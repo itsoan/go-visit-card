@@ -13,6 +13,10 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "Hello! My name is Alexander and this is my first project in Golang")
 }
 
+func healthHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprint(w, "OK")
+}
+
 func aboutHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "About me: I'm Technical Support Engineer and now I'm learning Go and building my first personal website")
 }
@@ -35,6 +39,7 @@ func main() {
 	http.HandleFunc("/about", aboutHandler)
 	http.HandleFunc("/projects", projectHandler)
 	http.HandleFunc("/contacts", contactHandler)
+	http.HandleFunc("/health", healthHandler)
 	fmt.Println("Server started on http://localhost:8080")
 
 	err := http.ListenAndServe(":8080", nil)
